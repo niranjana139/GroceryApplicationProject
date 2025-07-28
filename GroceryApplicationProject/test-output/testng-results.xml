@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-07-28T13:36:11 IST" name="Default suite" finished-at="2025-07-28T13:36:20 IST" duration-ms="8565">
+    <groups>
+    </groups>
+    <test started-at="2025-07-28T13:36:11 IST" name="Default test" finished-at="2025-07-28T13:36:20 IST" duration-ms="8565">
+      <class name="testscript.AdminTest">
+        <test-method is-config="true" signature="initiaizeBrowser()[pri:0, instance:testscript.AdminTest@14dd9eb7]" started-at="2025-07-28T13:36:11 IST" name="initiaizeBrowser" finished-at="2025-07-28T13:36:14 IST" duration-ms="2804" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initiaizeBrowser -->
+        <test-method signature="verifyUserAbleToAddUser()[pri:0, instance:testscript.AdminTest@14dd9eb7]" started-at="2025-07-28T13:36:14 IST" name="verifyUserAbleToAddUser" finished-at="2025-07-28T13:36:20 IST" duration-ms="5446" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyUserAbleToAddUser -->
+        <test-method is-config="true" signature="browserClose()[pri:0, instance:testscript.AdminTest@14dd9eb7]" started-at="2025-07-28T13:36:20 IST" name="browserClose" finished-at="2025-07-28T13:36:20 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browserClose -->
+        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testscript.AdminTest@14dd9eb7]" started-at="2025-07-28T13:36:20 IST" name="driverQuit" finished-at="2025-07-28T13:36:20 IST" duration-ms="248" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyUserAbleToAddUser status=SUCCESS method=AdminTest.verifyUserAbleToAddUser()[pri:0, instance:testscript.AdminTest@14dd9eb7] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- driverQuit -->
+      </class> <!-- testscript.AdminTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
