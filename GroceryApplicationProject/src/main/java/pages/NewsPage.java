@@ -33,29 +33,36 @@ public class NewsPage {
 	@FindBy(xpath="//h4[text()='Manage News']")WebElement manage;
 	@FindBy(xpath = "//h4[text()='Search Manage News']")WebElement searchManageNews;
 	
-	public boolean addNews() {
+	public void addNews() {
 		arrow.click();
 		newBtn.click();
 		newsText.sendKeys(Constants.NEWSTEXT);
 		saveBtn.click();
-		boolean isAlertDisplayed = alert.isDisplayed();
-		return isAlertDisplayed;
+		
 	}
 	
-	public boolean resetPage() {
+	public boolean isAlertDisplayed() {
+		return alert.isDisplayed();
+	}
+	
+	public void clickTile() {
 		arrow.click();
-		boolean isDisplayed=resetBtn.isDisplayed();
+	}
+	public void resetPage() {
 		resetBtn.click();
-		return isDisplayed;
 	}
 	
-	public boolean searchNews() {
-		arrow.click();
-		boolean isDisplayed = searchBtn.isDisplayed();
+	public boolean isResetButtonDisplayed() {
+		return resetBtn.isDisplayed();
+	}
+	
+	public boolean isSearchButtonDisplayed() {
+		return searchBtn.isDisplayed();
+	}
+	public void searchNews() {
 		searchBtn.click();
 		titleSearch.sendKeys(Constants.NEWSTEXT);
 		searchNews.click();
-		return isDisplayed;
 	}
 	
 	public boolean isManageNewsVisible() {

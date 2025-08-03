@@ -16,10 +16,14 @@ public class HomePage {
 
 	@FindBy(xpath = "//img[contains(@src, 'avatar5.png')]")WebElement admin;
 	@FindBy(css = "a i.fa-power-off")WebElement logout;
-	public boolean performLogout() {
-		admin.click();
-		boolean isLogoutDisplayed = logout.isDisplayed();
+	public void performLogout() {
 		logout.click();
-		return isLogoutDisplayed;
+	}
+	
+	public void clickAdmin() {
+		admin.click();
+	}
+	public boolean isLogoutDisplayed() {
+		return logout.isDisplayed();
 	}
 }

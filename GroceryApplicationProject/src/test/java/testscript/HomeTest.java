@@ -21,9 +21,13 @@ public class HomeTest extends TestNgBase{
 		loginPage.enterUserNameOnUsernameField(usernameValue);
 		loginPage.enterPasswordOnPasswordField(passwordValue);
 		loginPage.clickOnSigninButton();
-		HomePage homePage=new HomePage(driver);
-		boolean isLogoutDisplayed = homePage.performLogout();
-		Assert.assertTrue(isLogoutDisplayed,"Logout action cannot be performed");
+		
+		  HomePage homePage=new HomePage(driver);
+		  homePage.clickAdmin();
+		  boolean isLogoutDisplayed =homePage.isLogoutDisplayed(); 
+		  homePage.performLogout();
+		  Assert.assertTrue(isLogoutDisplayed,"Logout action cannot be performed");
+		 
 	}
 
 	

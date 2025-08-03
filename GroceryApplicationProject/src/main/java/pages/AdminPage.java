@@ -48,8 +48,15 @@ public class AdminPage {
 		saveBtn.click();
 		
 	}
-
 	
+	public boolean isSearchButtonDisplayed() {
+		
+		return searchBtn.isDisplayed();
+	}
+
+	public void clickTile() {
+		tile.click();
+	}
 	/*
 	 * @FindBy(xpath =
 	 * "//a[@class='small-box-footer' and @href='https://groceryapp.uniqassosiates.com/admin/list-admin']"
@@ -64,22 +71,24 @@ public class AdminPage {
 	 * 
 	 * @FindBy(xpath = "//button[@name=\"Search\"]") WebElement searchBtn;
 	 */
-	public boolean searchUser(String name,String userType) {
-		tile.click();
+	
+	
+	
+	public void searchUser(String name,String userType) {
 		search.click();
 		username.sendKeys(name);
 		Select select =new Select(userTypeDrop);
 		select.selectByContainsVisibleText(userType);
-		boolean isSearchButtonDisplayed = searchBtn.isDisplayed();
 		searchBtn.click();
-		return isSearchButtonDisplayed;
 	}
 	
-	public boolean reset() {
-		tile.click();
-		boolean isResetBtnDisplayed = resetBtn.isDisplayed();
+	public boolean isResetButtonDisplayed() {
+		return resetBtn.isDisplayed();
+	}
+	
+	public void reset() {
 		resetBtn.click();
-		return isResetBtnDisplayed;
+		
 	}
 	
 	/*public String getAdminText() {

@@ -22,7 +22,8 @@ public class NewsTest extends TestNgBase{
 		loginPage.clickOnSigninButton();
 		
 		NewsPage newsPage = new NewsPage(driver);
-		boolean isAlertDisplayed = newsPage.addNews();
+		newsPage.addNews();
+		boolean isAlertDisplayed = newsPage.isAlertDisplayed();
 		Assert.assertTrue(isAlertDisplayed, "Alert is not displayed for adding news");
 	}
 	
@@ -36,7 +37,9 @@ public class NewsTest extends TestNgBase{
 		loginPage.clickOnSigninButton();
 		
 		NewsPage newsPage = new NewsPage(driver);
-		boolean isVisible = newsPage.resetPage();
+		newsPage.clickTile();
+		boolean isVisible = newsPage.isResetButtonDisplayed();
+		newsPage.resetPage();
 		Assert.assertTrue(isVisible,"Reset is not visible");
 		
 	}
@@ -51,8 +54,10 @@ public class NewsTest extends TestNgBase{
 		loginPage.clickOnSigninButton();
 		
 		NewsPage newsPage = new NewsPage(driver);
-		//boolean isVisible = newsPage.isSearchButtonVisible();
-		boolean isDisplayed = newsPage.searchNews();
+		
+		newsPage.clickTile();
+		boolean isDisplayed = newsPage.isSearchButtonDisplayed();
+		newsPage.searchNews();
 		Assert.assertTrue(isDisplayed, "Search button is not visible");
 		
 	}

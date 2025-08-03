@@ -31,6 +31,7 @@ public class AdminTest extends TestNgBase{
 		admin.addDataAndClickSave(name, password,userType);
 		String expected="https://groceryapp.uniqassosiates.com/admin/list-admin?add";
 		String actual = driver.getCurrentUrl();
+		System.out.println(actual);
 		Assert.assertTrue(actual.contains(expected));
 	}
 	
@@ -46,7 +47,10 @@ public class AdminTest extends TestNgBase{
 		FakerUtility fakerUtility = new FakerUtility();
 		String name=fakerUtility.createRandomUserName();
 		String userType=ExcelUtility.getStringData(1, 2, "HomePage");
-		boolean isSearchDisplayed = admin.searchUser(name, userType);
+		admin.clickTile();
+		
+		admin.searchUser(name, userType);
+		boolean isSearchDisplayed = admin.isSearchButtonDisplayed();
 		Assert.assertTrue(isSearchDisplayed,"Search button is not displayed to perform search operation");
 	}
 	
@@ -60,7 +64,9 @@ public class AdminTest extends TestNgBase{
 		loginPage.clickOnSigninButton();
 		
 		AdminPage admin=new AdminPage(driver);
-		boolean isResetDisplayed = admin.reset();
+		admin.clickTile();
+		boolean isResetDisplayed = admin.isResetButtonDisplayed();
+		admin.reset();
 		Assert.assertTrue(isResetDisplayed,"Reset button is not displayed as expected");
 			
 	}
