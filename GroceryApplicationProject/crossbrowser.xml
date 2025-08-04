@@ -26,6 +26,7 @@
     </classes>
   </test>
   
+  
    <test thread-count="5" name="EdgeTest">
   <parameter name="browser" value="edge"></parameter>
     <classes>

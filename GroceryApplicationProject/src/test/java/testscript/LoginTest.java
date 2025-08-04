@@ -53,7 +53,6 @@ public class LoginTest extends TestNgBase {
 		String actual = loginPage.titleText();
 		Assert.assertEquals(actual, expected,Messages.INVALID_CREDENTIAL_PASSWORD_ERROR);
 	}
-	
 	@Test(priority = 4)
 	public void verifyWhetherUserIsAbleToLoginWithInValidPasswordInValidUsername() throws IOException{
 		LoginPage loginPage = new LoginPage(driver);

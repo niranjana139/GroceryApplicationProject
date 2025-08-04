@@ -54,7 +54,6 @@ public class AdminTest extends TestNgBase{
 		boolean isSearchDisplayed = admin.isSearchButtonDisplayed();
 		Assert.assertTrue(isSearchDisplayed,Messages.SEARCH_USER_ERROR);
 	}
-	
 	@Test
 	public void verifyReset() throws IOException {
 		LoginPage loginPage = new LoginPage(driver);

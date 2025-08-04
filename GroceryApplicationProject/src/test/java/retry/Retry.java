@@ -7,7 +7,6 @@ import org.testng.ITestResult;
 
 public class Retry implements IRetryAnalyzer{
 
-	
 	private static final Logger LOG = (Logger) LogManager.getLogger("Retry.class");
 	private static final int maxTry = 2;
 	private int count = 0;

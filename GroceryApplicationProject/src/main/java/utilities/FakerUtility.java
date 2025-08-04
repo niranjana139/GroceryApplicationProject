@@ -21,5 +21,4 @@ public class FakerUtility {
 	public String createRandomEmailAddress() {
 		return faker.internet().emailAddress();
 	}
-	
 }

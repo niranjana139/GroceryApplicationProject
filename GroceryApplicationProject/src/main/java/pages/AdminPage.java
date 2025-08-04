@@ -71,7 +71,6 @@ public class AdminPage {
 		//searchBtn.click();
 	}
 	
-	
 	public boolean isResetButtonDisplayed() {
 		return resetBtn.isDisplayed();
 	}

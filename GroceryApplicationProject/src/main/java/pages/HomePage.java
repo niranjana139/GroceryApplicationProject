@@ -22,8 +22,7 @@ public class HomePage {
 	
 	public void checkLogout() {
 		utility.clickOnElement(logout);
-		utility.clickOnElement(admin);
-		
+		utility.clickOnElement(admin);	
 	}
 	public boolean isLogoutDisplayed() {
 		return logout.isDisplayed();

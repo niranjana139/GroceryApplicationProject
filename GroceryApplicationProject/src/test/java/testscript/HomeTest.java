@@ -11,7 +11,6 @@ import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
-
 public class HomeTest extends TestNgBase{
 	
 	@Test

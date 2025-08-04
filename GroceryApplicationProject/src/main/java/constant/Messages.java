@@ -13,5 +13,4 @@ public class Messages {
 	public static final String RESET_NEWS_ERROR="Unable to reset news page";
 	public static final String SEARCH_NEWS_ERROR="Unable to search news";
 	public static final String LOGOUT_ERROR="Logout action cannot be performed";
-
 }

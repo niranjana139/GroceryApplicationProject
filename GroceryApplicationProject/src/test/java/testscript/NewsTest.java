@@ -13,6 +13,7 @@ import utilities.ExcelUtility;
 
 public class NewsTest extends TestNgBase{
 
+	
 	@Test
 	public void verifyAddNews() throws IOException {
 		LoginPage loginPage= new LoginPage(driver);

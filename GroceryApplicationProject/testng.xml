@@ -5,7 +5,6 @@
  <listener class-name="reportGeneration.Listener">
  
  </listener>
- 
  </listeners>
   <test thread-count="5" name="Test">
   <parameter name="browser" value="firefox"></parameter>
@@ -17,7 +16,6 @@
       <class name="testscript.NewsTest">
       	<methods><include name="verifyReset"></include></methods>
       </class>
-	 
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
