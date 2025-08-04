@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.TestNgBase;
+import constant.Messages;
 import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
@@ -23,10 +24,11 @@ public class HomeTest extends TestNgBase{
 		loginPage.clickOnSigninButton();
 		
 		  HomePage homePage=new HomePage(driver);
-		  homePage.clickAdmin();
-		  boolean isLogoutDisplayed =homePage.isLogoutDisplayed(); 
-		  homePage.performLogout();
-		  Assert.assertTrue(isLogoutDisplayed,"Logout action cannot be performed");
+		  
+		  String actual="https://groceryapp.uniqassosiates.com/admin/login";
+		  homePage.checkLogout();
+		  String expected=driver.getCurrentUrl();
+		  Assert.assertEquals(actual, expected,Messages.LOGOUT_ERROR);
 		 
 	}
 

@@ -22,5 +22,4 @@ public class FakerUtility {
 		return faker.internet().emailAddress();
 	}
 	
-	
 }

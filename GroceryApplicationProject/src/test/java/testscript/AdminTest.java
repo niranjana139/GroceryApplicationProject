@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.TestNgBase;
+import constant.Messages;
 import pages.AdminPage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
@@ -32,7 +33,7 @@ public class AdminTest extends TestNgBase{
 		String expected="https://groceryapp.uniqassosiates.com/admin/list-admin?add";
 		String actual = driver.getCurrentUrl();
 		System.out.println(actual);
-		Assert.assertTrue(actual.contains(expected));
+		Assert.assertTrue(actual.contains(expected),Messages.USERADD_ERROR);
 	}
 	
 	@Test
@@ -47,11 +48,11 @@ public class AdminTest extends TestNgBase{
 		FakerUtility fakerUtility = new FakerUtility();
 		String name=fakerUtility.createRandomUserName();
 		String userType=ExcelUtility.getStringData(1, 2, "HomePage");
-		admin.clickTile();
+
 		
 		admin.searchUser(name, userType);
 		boolean isSearchDisplayed = admin.isSearchButtonDisplayed();
-		Assert.assertTrue(isSearchDisplayed,"Search button is not displayed to perform search operation");
+		Assert.assertTrue(isSearchDisplayed,Messages.SEARCH_USER_ERROR);
 	}
 	
 	@Test
@@ -64,10 +65,10 @@ public class AdminTest extends TestNgBase{
 		loginPage.clickOnSigninButton();
 		
 		AdminPage admin=new AdminPage(driver);
-		admin.clickTile();
-		boolean isResetDisplayed = admin.isResetButtonDisplayed();
 		admin.reset();
-		Assert.assertTrue(isResetDisplayed,"Reset button is not displayed as expected");
+		String expected = driver.getCurrentUrl();
+		String actual="https://groceryapp.uniqassosiates.com/admin/list-admin";
+		Assert.assertEquals(actual, expected,Messages.RESET_ERROR);
 			
 	}
 

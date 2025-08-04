@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.TestNgBase;
+import constant.Messages;
 import pages.LoginPage;
 import pages.NewsPage;
 import utilities.ExcelUtility;
@@ -24,7 +25,7 @@ public class NewsTest extends TestNgBase{
 		NewsPage newsPage = new NewsPage(driver);
 		newsPage.addNews();
 		boolean isAlertDisplayed = newsPage.isAlertDisplayed();
-		Assert.assertTrue(isAlertDisplayed, "Alert is not displayed for adding news");
+		Assert.assertTrue(isAlertDisplayed, Messages.ADD_NEWS_ERROR);
 	}
 	
 	@Test
@@ -40,7 +41,7 @@ public class NewsTest extends TestNgBase{
 		newsPage.clickTile();
 		boolean isVisible = newsPage.isResetButtonDisplayed();
 		newsPage.resetPage();
-		Assert.assertTrue(isVisible,"Reset is not visible");
+		Assert.assertTrue(isVisible,Messages.RESET_NEWS_ERROR);
 		
 	}
 	
@@ -58,7 +59,7 @@ public class NewsTest extends TestNgBase{
 		newsPage.clickTile();
 		boolean isDisplayed = newsPage.isSearchButtonDisplayed();
 		newsPage.searchNews();
-		Assert.assertTrue(isDisplayed, "Search button is not visible");
+		Assert.assertTrue(isDisplayed, Messages.SEARCH_NEWS_ERROR);
 		
 	}
 	

@@ -5,9 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtility;
+
 public class HomePage {
 	
 	public WebDriver driver;
+	PageUtility utility = new PageUtility();
 	
 	public HomePage(WebDriver driver) {
 		this.driver=driver;
@@ -16,12 +19,11 @@ public class HomePage {
 
 	@FindBy(xpath = "//img[contains(@src, 'avatar5.png')]")WebElement admin;
 	@FindBy(css = "a i.fa-power-off")WebElement logout;
-	public void performLogout() {
-		logout.click();
-	}
 	
-	public void clickAdmin() {
-		admin.click();
+	public void checkLogout() {
+		utility.clickOnElement(logout);
+		utility.clickOnElement(admin);
+		
 	}
 	public boolean isLogoutDisplayed() {
 		return logout.isDisplayed();

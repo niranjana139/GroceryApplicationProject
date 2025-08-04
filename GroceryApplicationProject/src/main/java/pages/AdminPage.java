@@ -8,9 +8,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.PageUtility;
+
 public class AdminPage {
 	
 	public WebDriver driver;
+	PageUtility pageUtility = new PageUtility();
 	
 	public AdminPage(WebDriver driver) {
 		this.driver=driver;
@@ -39,14 +42,14 @@ public class AdminPage {
 	
 	
 	public void addDataAndClickSave(String name,String password,String userTypeValue) {
-		tile.click();
-		newButton.click();
-		addName.sendKeys(name);
-		addPassword.sendKeys(password);
-		Select select = new Select(userType);
-		select.selectByContainsVisibleText(userTypeValue);
-		saveBtn.click();
-		
+		pageUtility.clickOnElement(tile);
+		pageUtility.clickOnElement(newButton);
+		pageUtility.sendDataToElement(addName, name);
+		pageUtility.sendDataToElement(addPassword, password);
+		//addName.sendKeys(name);
+		//addPassword.sendKeys(password);
+		pageUtility.selectDataWithValue(userType,userTypeValue);
+		pageUtility.clickOnElement(saveBtn);		
 	}
 	
 	public boolean isSearchButtonDisplayed() {
@@ -54,40 +57,28 @@ public class AdminPage {
 		return searchBtn.isDisplayed();
 	}
 
-	public void clickTile() {
-		tile.click();
-	}
-	/*
-	 * @FindBy(xpath =
-	 * "//a[@class='small-box-footer' and @href='https://groceryapp.uniqassosiates.com/admin/list-admin']"
-	 * )WebElement arrow;
-	 * 
-	 * @FindBy(xpath = "//a[@class=\"btn btn-rounded btn-primary\"]")WebElement
-	 * search;
-	 * 
-	 * @FindBy(id="un")WebElement username;
-	 * 
-	 * @FindBy(id="ut")WebElement userTypeDrop;
-	 * 
-	 * @FindBy(xpath = "//button[@name=\"Search\"]") WebElement searchBtn;
-	 */
-	
+
 	
 	
 	public void searchUser(String name,String userType) {
-		search.click();
-		username.sendKeys(name);
-		Select select =new Select(userTypeDrop);
-		select.selectByContainsVisibleText(userType);
-		searchBtn.click();
+		pageUtility.clickOnElement(tile);
+		pageUtility.clickOnElement(search);
+		//search.click();
+		//username.sendKeys(name);
+		pageUtility.sendDataToElement(username, name);
+		pageUtility.selectDataWithValue(addName, userType);
+		pageUtility.clickOnElement(searchBtn);
+		//searchBtn.click();
 	}
+	
 	
 	public boolean isResetButtonDisplayed() {
 		return resetBtn.isDisplayed();
 	}
 	
 	public void reset() {
-		resetBtn.click();
+		pageUtility.clickOnElement(tile);
+		pageUtility.clickOnElement(resetBtn);
 		
 	}
 	

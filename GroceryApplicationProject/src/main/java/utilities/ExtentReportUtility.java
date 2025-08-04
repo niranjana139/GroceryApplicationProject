@@ -6,6 +6,7 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 public class ExtentReportUtility {
 	public static final ExtentReports extentReports = new ExtentReports();//static instance of extentreports that can be shared accross the application
 
+	
 	public synchronized static ExtentReports createExtentReports() {
 		//Creates an instance of the reporter that will generate the HTML report in the path "./extent-reports/extent-report.html".
 		ExtentSparkReporter reporter = new ExtentSparkReporter("./extent-reports/extent-report.html");

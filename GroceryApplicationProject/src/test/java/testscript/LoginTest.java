@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.TestNgBase;
+import constant.Messages;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
@@ -20,7 +21,7 @@ public class LoginTest extends TestNgBase {
 		loginPage.enterPasswordOnPasswordField(passwordValue);
 		loginPage.clickOnSigninButton();
 		boolean dashBoardDisplay =loginPage.isDashboardDisplayed();
-		Assert.assertTrue(dashBoardDisplay,"User was unable login with valid credentials");
+		Assert.assertTrue(dashBoardDisplay,Messages.VALID_CREDENTIAL_ERROR);
 	}
 
 	
@@ -34,7 +35,7 @@ public class LoginTest extends TestNgBase {
 		loginPage.clickOnSigninButton();
 		String expected = "7rmart supermarket";
 		String actual = loginPage.titleText();
-		Assert.assertEquals(actual, expected,"User was able to login with invald username");
+		Assert.assertEquals(actual, expected,Messages.INVALID_CREDENTIAL_USERNAME_ERROR);
 		
 	}
 
@@ -50,7 +51,7 @@ public class LoginTest extends TestNgBase {
 		loginPage.clickOnSigninButton();
 		String expected = "7rmart supermarket";
 		String actual = loginPage.titleText();
-		Assert.assertEquals(actual, expected,"User was able to login with invald username");
+		Assert.assertEquals(actual, expected,Messages.INVALID_CREDENTIAL_PASSWORD_ERROR);
 	}
 	
 	@Test(priority = 4)
@@ -63,6 +64,6 @@ public class LoginTest extends TestNgBase {
 		loginPage.clickOnSigninButton();
 		String expected = "7rmart supermarket";
 		String actual = loginPage.titleText();
-		Assert.assertEquals(actual, expected,"User was able to login with invald username");
+		Assert.assertEquals(actual, expected,Messages.INVALID_CREDENTIALS_ERROR);
 	}
 }
