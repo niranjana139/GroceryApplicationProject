@@ -39,10 +39,12 @@ public class NewsTest extends TestNgBase{
 		loginPage.clickOnSigninButton();
 		
 		NewsPage newsPage = new NewsPage(driver);
-		newsPage.clickTile();
-		boolean isVisible = newsPage.isResetButtonDisplayed();
+		//newsPage.clickTile();
+		//boolean isVisible = newsPage.isResetButtonDisplayed();
 		newsPage.resetPage();
-		Assert.assertTrue(isVisible,Messages.RESET_NEWS_ERROR);
+		String expected="https://groceryapp.uniqassosiates.com/admin/list-news";
+		String actual=driver.getCurrentUrl();
+		Assert.assertEquals(actual,expected,Messages.RESET_NEWS_ERROR);
 		
 	}
 	
@@ -57,10 +59,11 @@ public class NewsTest extends TestNgBase{
 		
 		NewsPage newsPage = new NewsPage(driver);
 		
-		newsPage.clickTile();
-		boolean isDisplayed = newsPage.isSearchButtonDisplayed();
+		
 		newsPage.searchNews();
-		Assert.assertTrue(isDisplayed, Messages.SEARCH_NEWS_ERROR);
+		String expected="https://groceryapp.uniqassosiates.com/admin/list-news";
+		String actual=driver.getCurrentUrl();
+		Assert.assertEquals(actual,expected,Messages.SEARCH_NEWS_ERROR);
 		
 	}
 	

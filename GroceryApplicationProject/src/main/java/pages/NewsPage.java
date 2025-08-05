@@ -8,10 +8,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import constant.Constants;
+import utilities.PageUtility;
 
 public class NewsPage {
 	
 	public WebDriver driver;
+	PageUtility utility = new PageUtility();
 	
 	public  NewsPage(WebDriver driver) {
 		this.driver=driver;
@@ -35,10 +37,14 @@ public class NewsPage {
 	@FindBy(xpath = "//h4[text()='Search Manage News']")WebElement searchManageNews;
 	
 	public void addNews() {
-		arrow.click();
-		newBtn.click();
-		newsText.sendKeys(Constants.NEWSTEXT);
-		saveBtn.click();
+		utility.clickOnElement(arrow);
+		//arrow.click();
+		utility.clickOnElement(newBtn);
+		//newBtn.click();
+		utility.sendDataToElement(newsText, Constants.NEWSTEXT);
+		//newsText.sendKeys(Constants.NEWSTEXT);
+		utility.clickOnElement(saveBtn);
+		//saveBtn.click();
 		
 	}
 	
@@ -50,7 +56,9 @@ public class NewsPage {
 		arrow.click();
 	}
 	public void resetPage() {
-		resetBtn.click();
+		utility.clickOnElement(arrow);
+		utility.clickOnElement(resetBtn);
+		//resetBtn.click();
 	}
 	
 	public boolean isResetButtonDisplayed() {
@@ -61,9 +69,12 @@ public class NewsPage {
 		return searchBtn.isDisplayed();
 	}
 	public void searchNews() {
-		searchBtn.click();
-		titleSearch.sendKeys(Constants.NEWSTEXT);
-		searchNews.click();
+		utility.clickOnElement(searchBtn);
+		//searchBtn.click();
+		utility.sendDataToElement(titleSearch, Constants.NEWSTEXT);
+		//titleSearch.sendKeys(Constants.NEWSTEXT);
+		utility.clickOnElement(searchNews);
+		//searchNews.click();
 	}
 	
 	public boolean isManageNewsVisible() {
