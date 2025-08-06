@@ -33,6 +33,7 @@ public class TestNgBase {
 		else {
 			throw new Exception("Invalid browser name");
 		}
+		
 		driver.get("https://groceryapp.uniqassosiates.com/admin/login");
 		driver.manage().window().maximize();
 		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
