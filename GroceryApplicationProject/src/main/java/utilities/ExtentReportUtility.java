@@ -15,5 +15,4 @@ public class ExtentReportUtility {
 		extentReports.setSystemInfo("Name", " Neethu "); //provides context of the report
 		return extentReports;
 	}
-
 }

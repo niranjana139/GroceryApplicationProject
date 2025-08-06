@@ -21,7 +21,6 @@ public class NewsPage {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 	
-	
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news' and @class='small-box-footer']")WebElement arrow;
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/news/add']")WebElement newBtn;
 	@FindBy(id = "news")WebElement newsText;

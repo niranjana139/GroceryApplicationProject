@@ -5,7 +5,6 @@
   <test thread-count="5" name="ChromeTest">
   <parameter name="browser" value="chrome"></parameter>
     <classes>
-     
       <class name="testscript.LoginTest"/>
 	  <class name="testscript.HomeTest"/>
       <class name="testscript.AdminTest"/>

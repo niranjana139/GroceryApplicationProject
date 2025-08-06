@@ -16,6 +16,7 @@ public class HomePage {
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
+	
 
 	@FindBy(xpath = "//img[contains(@src, 'avatar5.png')]")WebElement admin;
 	@FindBy(css = "a i.fa-power-off")WebElement logout;

@@ -12,7 +12,6 @@ import com.aventstack.extentreports.Status;
 import utilities.ExtentReportUtility;
 
 
-
 public class Listener implements ITestListener {
 
 	ExtentTest test;

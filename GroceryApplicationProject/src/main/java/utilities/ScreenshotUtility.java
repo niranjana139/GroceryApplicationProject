@@ -12,7 +12,6 @@ import org.openqa.selenium.io.FileHandler;
 
 public class ScreenshotUtility {
 	
-	
 	public void getScreenshot(WebDriver driver,String failedTestCase) throws IOException
 	{
 	TakesScreenshot scrShot = (TakesScreenshot) driver;

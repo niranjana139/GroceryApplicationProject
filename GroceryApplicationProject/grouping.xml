@@ -10,7 +10,6 @@
   		<include name="smoke"></include>
   	</run>
   </groups>
-  
     <classes>
      <class name="testscript.LoginTest">
      </class>

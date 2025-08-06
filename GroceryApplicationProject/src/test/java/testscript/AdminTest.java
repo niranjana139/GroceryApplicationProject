@@ -14,6 +14,7 @@ import utilities.FakerUtility;
 
 public class AdminTest extends TestNgBase{
 	
+	
 	@Test(description = "Verify if a user is able to be added")
 	public void verifyUserAbleToAddUser() throws IOException {
 		LoginPage loginPage = new LoginPage(driver);

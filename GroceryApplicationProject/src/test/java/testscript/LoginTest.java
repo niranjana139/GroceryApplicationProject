@@ -3,6 +3,7 @@ package testscript;
 import java.io.IOException;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import base.TestNgBase;
@@ -45,16 +46,26 @@ public class LoginTest extends TestNgBase {
 		String actual = loginPage.titleText();
 		Assert.assertEquals(actual, expected,Messages.INVALID_CREDENTIAL_PASSWORD_ERROR);
 	}
-	@Test(priority = 4,groups = {"smoke"},description ="Verify User login with invalid username and password")
-	public void verifyWhetherUserIsAbleToLoginWithInValidPasswordInValidUsername() throws IOException{
+	@Test(priority = 4,groups = {"smoke"},description ="Verify User login with invalid username and password",dataProvider = "loginProvider")
+	public void verifyWhetherUserIsAbleToLoginWithInValidPasswordInValidUsername(String usernameValue,String passwordValue) throws IOException{
 		LoginPage loginPage = new LoginPage(driver);
-		String usernameValue=ExcelUtility.getStringData(4, 0, "LoginPage");
-		String passwordValue=ExcelUtility.getStringData(4, 1, "LoginPage");
+		//String usernameValue=ExcelUtility.getStringData(4, 0, "LoginPage");
+		//String passwordValue=ExcelUtility.getStringData(4, 1, "LoginPage");
 		System.out.println(usernameValue);
 		System.out.println(passwordValue);
 		loginPage.performLogin(usernameValue,passwordValue);
 		String expected = "7rmart supermarket";
 		String actual = loginPage.titleText();
 		Assert.assertEquals(actual, expected,Messages.INVALID_CREDENTIALS_ERROR);
+	}
+	
+	
+	@DataProvider(name="loginProvider")
+	public Object[][] getDataFromDataProvider() throws IOException
+	{
+		return new Object[][] { new Object[] {"user","password"},
+			new Object[] {"username","pass"},
+			//new Object[] {ExcelUtility.getStringData(3, 0,"Login"),ExcelUtility.getStringData(3,1 ,"Login")}
+		};
 	}
 }

@@ -1,6 +1,6 @@
 package pages;
 
-import javax.swing.text.PasswordView;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,7 +15,8 @@ public class LoginPage {
 	PageUtility utility = new PageUtility();
 	public LoginPage(WebDriver driver) {
 		this.driver=driver;
-		PageFactory.initElements(driver, this);		
+		PageFactory.initElements(driver, this);	
+		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
 	}
 	
 	@FindBy(name="username")WebElement username;
