@@ -21,8 +21,8 @@ public class HomePage {
 	@FindBy(css = "a i.fa-power-off")WebElement logout;
 	
 	public void checkLogout() {
-		utility.clickOnElement(logout);
 		utility.clickOnElement(admin);	
+		utility.clickOnElement(logout);
 	}
 	public boolean isLogoutDisplayed() {
 		return logout.isDisplayed();

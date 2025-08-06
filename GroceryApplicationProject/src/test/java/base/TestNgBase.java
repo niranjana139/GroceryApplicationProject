@@ -18,7 +18,7 @@ import utilities.ScreenshotUtility;
 public class TestNgBase {
 	
 	public WebDriver driver;
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	@Parameters("browser")
 	public void initiaizeBrowser(String browser) throws Exception {
 		if(browser.equalsIgnoreCase("Chrome")) {
@@ -44,7 +44,7 @@ public class TestNgBase {
 		//quit();
 	}
 	
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void driverQuit(ITestResult iTestResult) throws IOException
 	{
 		if(iTestResult.getStatus()==ITestResult.FAILURE)

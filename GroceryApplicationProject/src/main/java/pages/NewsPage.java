@@ -69,6 +69,7 @@ public class NewsPage {
 		return searchBtn.isDisplayed();
 	}
 	public void searchNews() {
+		utility.clickOnElement(arrow);
 		utility.clickOnElement(searchBtn);
 		//searchBtn.click();
 		utility.sendDataToElement(titleSearch, Constants.NEWSTEXT);

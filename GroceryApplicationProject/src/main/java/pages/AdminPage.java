@@ -28,16 +28,16 @@ public class AdminPage {
 	@FindBy(xpath="//a[@class=\"btn btn-rounded btn-danger\"]")WebElement newButton;
 	@FindBy(id = "username")WebElement addName;
 	@FindBy(id="password")WebElement addPassword;
-	@FindBy(id= "user_type")WebElement userType;
+	@FindBy(xpath= "//select[@name='ut']")WebElement userType;
 	@FindBy(xpath = "//button[@name='Create']")WebElement saveBtn;
-	
+	@FindBy(xpath="//select[@name='user_type']")WebElement userTypes;
 	@FindBy(xpath = "//a[@class=\"btn btn-rounded btn-primary\"]")WebElement search;
 	@FindBy(id="un")WebElement username;
 	@FindBy(id="ut")WebElement userTypeDrop;
-	@FindBy(xpath = "//button[@name=\"Search\"]") WebElement searchBtn;
+	@FindBy(xpath = "//button[@name='Search']") WebElement searchBtn;
 	
-	
-	
+	 
+
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-warning']")WebElement resetBtn;
 	
 	
@@ -48,27 +48,24 @@ public class AdminPage {
 		pageUtility.sendDataToElement(addPassword, password);
 		//addName.sendKeys(name);
 		//addPassword.sendKeys(password);
-		pageUtility.selectDataWithValue(userType,userTypeValue);
+		pageUtility.selectDataWithValue(userTypes,userTypeValue);
 		pageUtility.clickOnElement(saveBtn);		
 	}
 	
-	public boolean isSearchButtonDisplayed() {
-		
-		return searchBtn.isDisplayed();
-	}
-
-
 	
-	
-	public void searchUser(String name,String userType) {
+	public void searchUser(String name,String userTypeValue) {
 		pageUtility.clickOnElement(tile);
 		pageUtility.clickOnElement(search);
 		//search.click();
 		//username.sendKeys(name);
 		pageUtility.sendDataToElement(username, name);
-		pageUtility.selectDataWithValue(addName, userType);
+		pageUtility.selectDataWithValue(userType, userTypeValue);
 		pageUtility.clickOnElement(searchBtn);
 		//searchBtn.click();
+	}
+	
+	public boolean isSearchButtonDisplayed() {
+		return searchBtn.isDisplayed();
 	}
 	
 	public boolean isResetButtonDisplayed() {

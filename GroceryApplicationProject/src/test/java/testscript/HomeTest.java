@@ -13,14 +13,12 @@ import utilities.ExcelUtility;
 
 public class HomeTest extends TestNgBase{
 	
-	@Test
+	@Test(description = "Verify if the user is able to logout")
 	public void verifyWhetherUserAbleToLogout() throws IOException {
 		LoginPage loginPage = new LoginPage(driver);
 		String usernameValue=ExcelUtility.getStringData(1, 0, "LoginPage");
 		String passwordValue=ExcelUtility.getStringData(1, 1, "LoginPage");
-		loginPage.enterUserNameOnUsernameField(usernameValue);
-		loginPage.enterPasswordOnPasswordField(passwordValue);
-		loginPage.clickOnSigninButton();
+		loginPage.performLogin(usernameValue, passwordValue);
 		
 		  HomePage homePage=new HomePage(driver);
 		  

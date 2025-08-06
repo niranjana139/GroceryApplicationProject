@@ -5,10 +5,8 @@
     <classes>
       <class name="testscript.AdminTest">
         <methods>
-          <include name="verifyUserAbleToAddUser"/>
           <include name="verifySearch"/>
           <include name="browserClose"/>
-          <include name="verifyReset"/>
           <include name="driverQuit"/>
           <include name="initiaizeBrowser"/>
         </methods>

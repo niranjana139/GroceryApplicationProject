@@ -7,14 +7,14 @@
   <test thread-count="5" name="Test(failed)">
     <parameter name="browser" value="firefox"/>
     <classes>
-      <class name="testscript.LoginTest">
+      <class name="testscript.NewsTest">
         <methods>
-          <include name="verifyWhetherUserIsAbleToLoginWithInValidPasswordInValidUsername"/>
+          <include name="verifySearchNews"/>
           <include name="browserClose"/>
           <include name="driverQuit"/>
           <include name="initiaizeBrowser"/>
         </methods>
-      </class> <!-- testscript.LoginTest -->
+      </class> <!-- testscript.NewsTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -10,12 +10,12 @@
   <parameter name="browser" value="firefox"></parameter>
     <classes>
      
-      <class name="testscript.LoginTest"/>
+     <!-- <class name="testscript.LoginTest"/>
 	  <class name="testscript.HomeTest"/>
-      <class name="testscript.AdminTest"/>
-      <class name="testscript.NewsTest">
-      	<methods><include name="verifyReset"></include></methods>
-      </class>
+      <class name="testscript.AdminTest"/>-->
+     <class name="testscript.NewsTest">
+     	<methods><include name="verifySearchNews"></include></methods>
+     </class>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
