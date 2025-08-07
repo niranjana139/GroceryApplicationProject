@@ -12,6 +12,7 @@ import utilities.PageUtility;
 
 public class NewsPage {
 	
+	
 	public WebDriver driver;
 	PageUtility utility = new PageUtility();
 	

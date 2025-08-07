@@ -69,7 +69,6 @@ public class NewsTest extends TestNgBase{
 		 * actual=driver.getCurrentUrl(); Assert.assertEquals(actual.contains(expected),
 		 * Messages.SEARCH_NEWS_ERROR);
 		 */
-		
 	}
 	
 	

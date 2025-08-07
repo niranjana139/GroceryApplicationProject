@@ -29,6 +29,5 @@ public class HomeTest extends TestNgBase{
 		  String expected=driver.getCurrentUrl();
 		  Assert.assertEquals(actual, expected,Messages.LOGOUT_ERROR);
 	}
-
 	
 }

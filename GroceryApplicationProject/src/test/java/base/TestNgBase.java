@@ -17,10 +17,10 @@ import org.testng.annotations.Parameters;
 import constant.Constants;
 import utilities.ScreenshotUtility;
 
+
 public class TestNgBase {
 	Properties prop;
 	FileInputStream f;
-	
 	
 	public WebDriver driver;
 	@BeforeMethod(alwaysRun = true)

@@ -33,7 +33,8 @@ public class AdminTest extends TestNgBase{
 		//admin.addDataAndClickSave(name, password,userType);
 		homePage.clickOnTile();
 		admin.clickNewButton().addName(name).addPassword(password).selectType(userType).clickSave();
-		
+		boolean isResetButtonDisplayed = admin.isResetButtonDisplayed();
+		Assert.assertTrue(isResetButtonDisplayed, Messages.USERADD_ERROR);
 		/*
 		 * String expected="https://groceryapp.uniqassosiates.com/admin/list-admin?add";
 		 * String actual = driver.getCurrentUrl(); System.out.println(actual);

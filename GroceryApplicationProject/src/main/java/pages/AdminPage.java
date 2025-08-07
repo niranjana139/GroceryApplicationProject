@@ -112,8 +112,4 @@ public class AdminPage {
 		
 	}
 	
-	/*public String getAdminText() {
-		return title.getText();
-		
-	}*/
 }

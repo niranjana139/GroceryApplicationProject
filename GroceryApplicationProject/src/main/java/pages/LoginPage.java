@@ -52,4 +52,5 @@ public class LoginPage {
 	public String titleText() {
 		return title.getText();
 	}
+	
 }

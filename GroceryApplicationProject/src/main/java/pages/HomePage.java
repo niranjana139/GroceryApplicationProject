@@ -17,7 +17,6 @@ public class HomePage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	
 	@FindBy(xpath = "//img[contains(@src, 'avatar5.png')]")WebElement admin;
 	@FindBy(css = "a i.fa-power-off")WebElement logout;
 	@FindBy(xpath = "//a[contains(@class, 'small-box-footer') and @href='https://groceryapp.uniqassosiates.com/admin/list-admin']")
