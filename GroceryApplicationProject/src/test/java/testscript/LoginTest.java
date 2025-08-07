@@ -8,17 +8,21 @@ import org.testng.annotations.Test;
 
 import base.TestNgBase;
 import constant.Messages;
+import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class LoginTest extends TestNgBase {
+	HomePage home;
 	
 	@Test(priority = 1,description = "Verify User login with valid credentials",retryAnalyzer = retry.Retry.class,groups = {"smoke"})
 	public void verifyWhetherUserIsAbleToLoginWithValidCredential() throws IOException {
 		LoginPage loginPage = new LoginPage(driver);
 		String usernameValue=ExcelUtility.getStringData(1, 0, "LoginPage");
 		String passwordValue=ExcelUtility.getStringData(1, 1, "LoginPage");
-		loginPage.performLogin(usernameValue,passwordValue);
+		loginPage.enterUserNameOnUsernameField(usernameValue).enterPasswordOnPasswordField(passwordValue);
+		home=loginPage.clickOnSigninButton();
+		//loginPage.performLogin(usernameValue,passwordValue);
 		boolean dashBoardDisplay =loginPage.isDashboardDisplayed();
 		Assert.assertTrue(dashBoardDisplay,Messages.VALID_CREDENTIAL_ERROR);
 	}
@@ -29,7 +33,8 @@ public class LoginTest extends TestNgBase {
 		LoginPage loginPage = new LoginPage(driver);
 		String usernameValue=ExcelUtility.getStringData(2, 0, "LoginPage");
 		String passwordValue=ExcelUtility.getStringData(2, 1, "LoginPage");
-		loginPage.performLogin(usernameValue,passwordValue);
+		loginPage.enterUserNameOnUsernameField(usernameValue).enterPasswordOnPasswordField(passwordValue).clickOnSigninButton();
+		//loginPage.performLogin(usernameValue,passwordValue);
 		String expected = "7rmart supermarket";
 		String actual = loginPage.titleText();
 		Assert.assertEquals(actual, expected,Messages.INVALID_CREDENTIAL_USERNAME_ERROR);

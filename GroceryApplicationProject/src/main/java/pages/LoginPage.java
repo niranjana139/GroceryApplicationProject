@@ -20,18 +20,21 @@ public class LoginPage {
 	}
 	
 	@FindBy(name="username")WebElement username;
-	public void enterUserNameOnUsernameField(String usernameValue) {
+	public LoginPage enterUserNameOnUsernameField(String usernameValue) {
 		username.sendKeys(usernameValue);
+		return this;
 	}
 	
 	@FindBy(name="password")WebElement password;
-	public void enterPasswordOnPasswordField(String passwordValue) {
+	public LoginPage enterPasswordOnPasswordField(String passwordValue) {
 		password.sendKeys(passwordValue);
+		return this;
 	}
 	
 	@FindBy(css = "button[class=\"btn btn-dark btn-block\"]")WebElement signin;
-	public void clickOnSigninButton() {
+	public HomePage clickOnSigninButton() {
 		signin.click();
+		return new HomePage(driver);
 	}
 	
 	@FindBy(xpath="//p[text()='Dashboard']")WebElement dash;

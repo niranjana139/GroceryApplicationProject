@@ -7,21 +7,26 @@ import org.testng.annotations.Test;
 
 import base.TestNgBase;
 import constant.Messages;
+import pages.HomePage;
 import pages.LoginPage;
 import pages.NewsPage;
 import utilities.ExcelUtility;
 
 public class NewsTest extends TestNgBase{
-
+	HomePage home;
 	@Test(description = "Verify if the news is added")
 	public void verifyAddNews() throws IOException {
 		LoginPage loginPage= new LoginPage(driver);
 		String usernameValue=ExcelUtility.getStringData(1, 0, "LoginPage");
 		String passwordValue=ExcelUtility.getStringData(1, 1, "LoginPage");
-		loginPage.performLogin(usernameValue, passwordValue);
+		loginPage.enterUserNameOnUsernameField(usernameValue).enterPasswordOnPasswordField(passwordValue);
+		home=loginPage.clickOnSigninButton();
 		
 		NewsPage newsPage = new NewsPage(driver);
-		newsPage.addNews();
+		home.clickOnNewsTile();
+		newsPage.clickNewButton().addNews().saveNews();
+		
+		//newsPage.addNews();
 		boolean isAlertDisplayed = newsPage.isAlertDisplayed();
 		Assert.assertTrue(isAlertDisplayed, Messages.ADD_NEWS_ERROR);
 	}
@@ -31,11 +36,13 @@ public class NewsTest extends TestNgBase{
 		LoginPage loginPage= new LoginPage(driver);
 		String usernameValue=ExcelUtility.getStringData(1, 0, "LoginPage");
 		String passwordValue=ExcelUtility.getStringData(1, 1, "LoginPage");
-		loginPage.performLogin(usernameValue, passwordValue);
+		loginPage.enterUserNameOnUsernameField(usernameValue).enterPasswordOnPasswordField(passwordValue);
+		home=loginPage.clickOnSigninButton();
 		
 		NewsPage newsPage = new NewsPage(driver);
 		//newsPage.clickTile();
 		//boolean isVisible = newsPage.isResetButtonDisplayed();
+		home.clickOnNewsTile();
 		newsPage.resetPage();
 		String expected="https://groceryapp.uniqassosiates.com/admin/list-news";
 		String actual=driver.getCurrentUrl();
@@ -48,15 +55,20 @@ public class NewsTest extends TestNgBase{
 		LoginPage loginPage= new LoginPage(driver);
 		String usernameValue=ExcelUtility.getStringData(1, 0, "LoginPage");
 		String passwordValue=ExcelUtility.getStringData(1, 1, "LoginPage");
-		loginPage.performLogin(usernameValue, passwordValue);
+		loginPage.enterUserNameOnUsernameField(usernameValue).enterPasswordOnPasswordField(passwordValue);
+		home=loginPage.clickOnSigninButton();
 		
 		NewsPage newsPage = new NewsPage(driver);
 		
-		
-		newsPage.searchNews();
-		String expected="https://groceryapp.uniqassosiates.com/admin";
-		String actual=driver.getCurrentUrl();
-		Assert.assertEquals(actual.contains(expected), Messages.SEARCH_NEWS_ERROR);
+		home.clickOnNewsTile();
+		newsPage.clickSearchNewsButton().addSearchingNews().clickSearch();
+		boolean isSearchNewsButtonDisplayed = newsPage.isSearchButtonDisplayed();
+		Assert.assertTrue(isSearchNewsButtonDisplayed, Messages.SEARCH_NEWS_ERROR);
+		/*
+		 * String expected="https://groceryapp.uniqassosiates.com/admin"; String
+		 * actual=driver.getCurrentUrl(); Assert.assertEquals(actual.contains(expected),
+		 * Messages.SEARCH_NEWS_ERROR);
+		 */
 		
 	}
 	

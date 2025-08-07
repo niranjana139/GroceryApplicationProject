@@ -35,14 +35,24 @@ public class NewsPage {
 	@FindBy(xpath="//h4[text()='Manage News']")WebElement manage;
 	@FindBy(xpath = "//h4[text()='Search Manage News']")WebElement searchManageNews;
 	
-	public void addNews() {
-		utility.clickOnElement(arrow);
-		//arrow.click();
+	public NewsPage clickNewButton() {
 		utility.clickOnElement(newBtn);
-		//newBtn.click();
+		return new NewsPage(driver);
+	}
+	
+	public NewsPage addNews() {
 		utility.sendDataToElement(newsText, Constants.NEWSTEXT);
+		return new NewsPage(driver);
+	}
+	public NewsPage saveNews() {
+		//utility.clickOnElement(arrow);
+		//arrow.click();
+		//utility.clickOnElement(newBtn);
+		//newBtn.click();
+		//utility.sendDataToElement(newsText, Constants.NEWSTEXT);
 		//newsText.sendKeys(Constants.NEWSTEXT);
 		utility.clickOnElement(saveBtn);
+		return new NewsPage(driver);
 		//saveBtn.click();
 		
 	}
@@ -55,7 +65,7 @@ public class NewsPage {
 		arrow.click();
 	}
 	public void resetPage() {
-		utility.clickOnElement(arrow);
+		//utility.clickOnElement(arrow);
 		utility.clickOnElement(resetBtn);
 		//resetBtn.click();
 	}
@@ -67,14 +77,27 @@ public class NewsPage {
 	public boolean isSearchButtonDisplayed() {
 		return searchBtn.isDisplayed();
 	}
-	public void searchNews() {
-		utility.clickOnElement(arrow);
+	
+	public NewsPage clickSearchNewsButton() {
 		utility.clickOnElement(searchBtn);
-		//searchBtn.click();
+		return this;
+	}
+	
+	public NewsPage addSearchingNews() {
 		utility.sendDataToElement(titleSearch, Constants.NEWSTEXT);
+		return this;
+	}
+	
+	
+	public NewsPage clickSearch() {
+		//utility.clickOnElement(arrow);
+		//utility.clickOnElement(searchBtn);
+		//searchBtn.click();
+		//utility.sendDataToElement(titleSearch, Constants.NEWSTEXT);
 		//titleSearch.sendKeys(Constants.NEWSTEXT);
 		utility.clickOnElement(searchNews);
 		//searchNews.click();
+		return this;
 	}
 	
 	public boolean isManageNewsVisible() {
@@ -84,5 +107,6 @@ public class NewsPage {
 	public boolean isSearchButtonVisible() {
 		return searchBtn.isDisplayed();
 	}
+	
 
 }

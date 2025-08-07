@@ -8,21 +8,21 @@ import org.testng.annotations.Test;
 import base.TestNgBase;
 import constant.Messages;
 import pages.AdminPage;
+import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 import utilities.FakerUtility;
 
 public class AdminTest extends TestNgBase{
-	
+	HomePage homePage;
 	
 	@Test(description = "Verify if a user is able to be added")
 	public void verifyUserAbleToAddUser() throws IOException {
 		LoginPage loginPage = new LoginPage(driver);
 		String usernameValue=ExcelUtility.getStringData(1, 0, "LoginPage");
 		String passwordValue=ExcelUtility.getStringData(1, 1, "LoginPage");
-		loginPage.enterUserNameOnUsernameField(usernameValue);
-		loginPage.enterPasswordOnPasswordField(passwordValue);
-		loginPage.clickOnSigninButton();
+		loginPage.enterUserNameOnUsernameField(usernameValue).enterPasswordOnPasswordField(passwordValue);
+		homePage=loginPage.clickOnSigninButton();
 		AdminPage admin= new AdminPage(driver);
 		//admin.clickOnTile();
 		//admin.clickOnNew();
@@ -30,7 +30,10 @@ public class AdminTest extends TestNgBase{
 		String name=fakerUtility.createRandomUserName();
 		String password=fakerUtility.createRandomPassword();
 		String userType=ExcelUtility.getStringData(1, 2, "HomePage");
-		admin.addDataAndClickSave(name, password,userType);
+		//admin.addDataAndClickSave(name, password,userType);
+		homePage.clickOnTile();
+		admin.clickNewButton().addName(name).addPassword(password).selectType(userType).clickSave();
+		
 		/*
 		 * String expected="https://groceryapp.uniqassosiates.com/admin/list-admin?add";
 		 * String actual = driver.getCurrentUrl(); System.out.println(actual);
@@ -43,12 +46,17 @@ public class AdminTest extends TestNgBase{
 		LoginPage loginPage = new LoginPage(driver);
 		String usernameValue=ExcelUtility.getStringData(1, 0, "LoginPage");
 		String passwordValue=ExcelUtility.getStringData(1, 1, "LoginPage");
-		loginPage.performLogin(usernameValue, passwordValue);
+		loginPage.enterUserNameOnUsernameField(usernameValue).enterPasswordOnPasswordField(passwordValue);
+		homePage=loginPage.clickOnSigninButton();
+
+		//loginPage.performLogin(usernameValue, passwordValue);
 		AdminPage admin= new AdminPage(driver);
 		FakerUtility fakerUtility = new FakerUtility();
 		String name=fakerUtility.createRandomUserName();
 		String userType=ExcelUtility.getStringData(1, 2, "HomePage");
-		admin.searchUser(name, userType);
+		homePage.clickOnTile();
+		admin.clickSearch().searchUsername(name).searchUserType(userType).searchUser();
+		//admin.searchUser(name, userType);
 		boolean isSearchButtonDisplayed = admin.isSearchButtonDisplayed();
 		Assert.assertTrue(isSearchButtonDisplayed, Messages.SEARCH_USER_ERROR);
 		//Assert.assertTrue(false);
@@ -58,11 +66,12 @@ public class AdminTest extends TestNgBase{
 		LoginPage loginPage = new LoginPage(driver);
 		String usernameValue=ExcelUtility.getStringData(1, 0, "LoginPage");
 		String passwordValue=ExcelUtility.getStringData(1, 1, "LoginPage");
-		loginPage.enterUserNameOnUsernameField(usernameValue);
-		loginPage.enterPasswordOnPasswordField(passwordValue);
-		loginPage.clickOnSigninButton();
+		loginPage.enterUserNameOnUsernameField(usernameValue).enterPasswordOnPasswordField(passwordValue);
+		homePage=loginPage.clickOnSigninButton();
+
 		
 		AdminPage admin=new AdminPage(driver);
+		homePage.clickOnTile();
 		admin.reset();
 		String expected = driver.getCurrentUrl();
 		String actual="https://groceryapp.uniqassosiates.com/admin/list-admin";
