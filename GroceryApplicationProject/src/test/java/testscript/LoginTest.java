@@ -7,6 +7,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import base.TestNgBase;
+import constant.Constants;
 import constant.Messages;
 import pages.HomePage;
 import pages.LoginPage;
@@ -18,8 +19,8 @@ public class LoginTest extends TestNgBase {
 	@Test(priority = 1,description = "Verify User login with valid credentials",retryAnalyzer = retry.Retry.class,groups = {"smoke"})
 	public void verifyWhetherUserIsAbleToLoginWithValidCredential() throws IOException {
 		LoginPage loginPage = new LoginPage(driver);
-		String usernameValue=ExcelUtility.getStringData(1, 0, "LoginPage");
-		String passwordValue=ExcelUtility.getStringData(1, 1, "LoginPage");
+		String usernameValue=ExcelUtility.getStringData(1, 0, Constants.LOGINSHEET);
+		String passwordValue=ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
 		loginPage.enterUserNameOnUsernameField(usernameValue).enterPasswordOnPasswordField(passwordValue);
 		home=loginPage.clickOnSigninButton();
 		//loginPage.performLogin(usernameValue,passwordValue);
@@ -31,8 +32,8 @@ public class LoginTest extends TestNgBase {
 	@Test( priority = 2,description ="Verify User login with invalid username and valid password" )
 	public void verifyWhetherUserIsAbleToLoginWithValidPasswordInvalidUsername() throws IOException {
 		LoginPage loginPage = new LoginPage(driver);
-		String usernameValue=ExcelUtility.getStringData(2, 0, "LoginPage");
-		String passwordValue=ExcelUtility.getStringData(2, 1, "LoginPage");
+		String usernameValue=ExcelUtility.getStringData(2, 0, Constants.LOGINSHEET);
+		String passwordValue=ExcelUtility.getStringData(2, 1, Constants.LOGINSHEET);
 		loginPage.enterUserNameOnUsernameField(usernameValue).enterPasswordOnPasswordField(passwordValue).clickOnSigninButton();
 		//loginPage.performLogin(usernameValue,passwordValue);
 		String expected = "7rmart supermarket";
@@ -44,8 +45,8 @@ public class LoginTest extends TestNgBase {
 	@Test(priority = 3,description ="Verify User login with invalid password and valid username")
 	public void verifyWhetherUserIsAbleToLoginWithInValidPasswordValidUsername() throws IOException {
 		LoginPage loginPage = new LoginPage(driver);
-		String usernameValue=ExcelUtility.getStringData(3, 0, "LoginPage");
-		String passwordValue=ExcelUtility.getStringData(3, 1, "LoginPage");
+		String usernameValue=ExcelUtility.getStringData(3, 0, Constants.LOGINSHEET);
+		String passwordValue=ExcelUtility.getStringData(3, 1, Constants.LOGINSHEET);
 		loginPage.performLogin(usernameValue,passwordValue);
 		String expected = "7rmart supermarket";
 		String actual = loginPage.titleText();

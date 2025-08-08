@@ -9,12 +9,14 @@ import org.openqa.selenium.support.PageFactory;
 
 import constant.Constants;
 import utilities.PageUtility;
+import utilities.WaitUtility;
 
 public class NewsPage {
 	
 	
 	public WebDriver driver;
 	PageUtility utility = new PageUtility();
+	WaitUtility waitUtility = new WaitUtility();
 	
 	public  NewsPage(WebDriver driver) {
 		this.driver=driver;
@@ -59,6 +61,7 @@ public class NewsPage {
 	}
 	
 	public boolean isAlertDisplayed() {
+		waitUtility.waitUntilElementIsVisible(driver, alert);
 		return alert.isDisplayed();
 	}
 	

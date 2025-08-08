@@ -92,6 +92,7 @@ public class AdminPage {
 		//username.sendKeys(name);
 		//pageUtility.sendDataToElement(username, name);
 		//pageUtility.selectDataWithValue(userType, userTypeValue);
+		waitUtility.waitUntilClickable(driver, searchBtn);
 		pageUtility.clickOnElement(searchBtn);
 		return new AdminPage(driver);
 		//searchBtn.click();

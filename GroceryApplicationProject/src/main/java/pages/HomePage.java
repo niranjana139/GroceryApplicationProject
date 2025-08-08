@@ -6,12 +6,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import utilities.PageUtility;
+import utilities.WaitUtility;
 
 public class HomePage {
 	
 	public WebDriver driver;
 	PageUtility utility = new PageUtility();
-	
+	WaitUtility waitUtility = new WaitUtility();
 	public HomePage(WebDriver driver) {
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
@@ -23,6 +24,7 @@ public class HomePage {
 	WebElement tile;
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news' and @class='small-box-footer']")WebElement arrow;
 	public void clickOnAdminIcon() {
+		waitUtility.waitUntilClickable(driver, admin);
 		utility.clickOnElement(admin);
 	}
 	public LoginPage checkLogout() {

@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.TestNgBase;
+import constant.Constants;
 import constant.Messages;
 import pages.HomePage;
 import pages.LoginPage;
@@ -17,8 +18,8 @@ public class NewsTest extends TestNgBase{
 	@Test(description = "Verify if the news is added")
 	public void verifyAddNews() throws IOException {
 		LoginPage loginPage= new LoginPage(driver);
-		String usernameValue=ExcelUtility.getStringData(1, 0, "LoginPage");
-		String passwordValue=ExcelUtility.getStringData(1, 1, "LoginPage");
+		String usernameValue=ExcelUtility.getStringData(1, 0, Constants.LOGINSHEET);
+		String passwordValue=ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
 		loginPage.enterUserNameOnUsernameField(usernameValue).enterPasswordOnPasswordField(passwordValue);
 		home=loginPage.clickOnSigninButton();
 		
@@ -34,8 +35,8 @@ public class NewsTest extends TestNgBase{
 	@Test(description = "Verify if the reset functionality is working in news page")
 	public void verifyReset() throws IOException {
 		LoginPage loginPage= new LoginPage(driver);
-		String usernameValue=ExcelUtility.getStringData(1, 0, "LoginPage");
-		String passwordValue=ExcelUtility.getStringData(1, 1, "LoginPage");
+		String usernameValue=ExcelUtility.getStringData(1, 0, Constants.LOGINSHEET);
+		String passwordValue=ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
 		loginPage.enterUserNameOnUsernameField(usernameValue).enterPasswordOnPasswordField(passwordValue);
 		home=loginPage.clickOnSigninButton();
 		
@@ -53,8 +54,8 @@ public class NewsTest extends TestNgBase{
 	@Test(description = "Verify if a given news is able to be searched")
 	public void verifySearchNews() throws IOException {
 		LoginPage loginPage= new LoginPage(driver);
-		String usernameValue=ExcelUtility.getStringData(1, 0, "LoginPage");
-		String passwordValue=ExcelUtility.getStringData(1, 1, "LoginPage");
+		String usernameValue=ExcelUtility.getStringData(1, 0, Constants.LOGINSHEET);
+		String passwordValue=ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
 		loginPage.enterUserNameOnUsernameField(usernameValue).enterPasswordOnPasswordField(passwordValue);
 		home=loginPage.clickOnSigninButton();
 		

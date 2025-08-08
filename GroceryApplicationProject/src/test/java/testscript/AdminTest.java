@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.TestNgBase;
+import constant.Constants;
 import constant.Messages;
 import pages.AdminPage;
 import pages.HomePage;
@@ -17,10 +18,10 @@ public class AdminTest extends TestNgBase{
 	HomePage homePage;
 	
 	@Test(description = "Verify if a user is able to be added")
-	public void verifyUserAbleToAddUser() throws IOException {
+	public void verifyAbleToAddUser() throws IOException {
 		LoginPage loginPage = new LoginPage(driver);
-		String usernameValue=ExcelUtility.getStringData(1, 0, "LoginPage");
-		String passwordValue=ExcelUtility.getStringData(1, 1, "LoginPage");
+		String usernameValue=ExcelUtility.getStringData(1, 0, Constants.LOGINSHEET);
+		String passwordValue=ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
 		loginPage.enterUserNameOnUsernameField(usernameValue).enterPasswordOnPasswordField(passwordValue);
 		homePage=loginPage.clickOnSigninButton();
 		AdminPage admin= new AdminPage(driver);
@@ -29,7 +30,7 @@ public class AdminTest extends TestNgBase{
 		FakerUtility fakerUtility = new FakerUtility();
 		String name=fakerUtility.createRandomUserName();
 		String password=fakerUtility.createRandomPassword();
-		String userType=ExcelUtility.getStringData(1, 2, "HomePage");
+		String userType=ExcelUtility.getStringData(1, 2, Constants.HOMESHEET);
 		//admin.addDataAndClickSave(name, password,userType);
 		homePage.clickOnTile();
 		admin.clickNewButton().addName(name).addPassword(password).selectType(userType).clickSave();
@@ -45,8 +46,8 @@ public class AdminTest extends TestNgBase{
 	@Test(description = "Verify if a user can be searched")
 	public void verifySearch() throws IOException{
 		LoginPage loginPage = new LoginPage(driver);
-		String usernameValue=ExcelUtility.getStringData(1, 0, "LoginPage");
-		String passwordValue=ExcelUtility.getStringData(1, 1, "LoginPage");
+		String usernameValue=ExcelUtility.getStringData(1, 0, Constants.LOGINSHEET);
+		String passwordValue=ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
 		loginPage.enterUserNameOnUsernameField(usernameValue).enterPasswordOnPasswordField(passwordValue);
 		homePage=loginPage.clickOnSigninButton();
 
@@ -54,7 +55,7 @@ public class AdminTest extends TestNgBase{
 		AdminPage admin= new AdminPage(driver);
 		FakerUtility fakerUtility = new FakerUtility();
 		String name=fakerUtility.createRandomUserName();
-		String userType=ExcelUtility.getStringData(1, 2, "HomePage");
+		String userType=ExcelUtility.getStringData(1, 2, Constants.HOMESHEET);
 		homePage.clickOnTile();
 		admin.clickSearch().searchUsername(name).searchUserType(userType).searchUser();
 		//admin.searchUser(name, userType);
@@ -65,8 +66,8 @@ public class AdminTest extends TestNgBase{
 	@Test(description = "Verify if the reset functionality is working in admin page")
 	public void verifyReset() throws IOException {
 		LoginPage loginPage = new LoginPage(driver);
-		String usernameValue=ExcelUtility.getStringData(1, 0, "LoginPage");
-		String passwordValue=ExcelUtility.getStringData(1, 1, "LoginPage");
+		String usernameValue=ExcelUtility.getStringData(1, 0, Constants.LOGINSHEET);
+		String passwordValue=ExcelUtility.getStringData(1, 1,Constants.LOGINSHEET);
 		loginPage.enterUserNameOnUsernameField(usernameValue).enterPasswordOnPasswordField(passwordValue);
 		homePage=loginPage.clickOnSigninButton();
 
