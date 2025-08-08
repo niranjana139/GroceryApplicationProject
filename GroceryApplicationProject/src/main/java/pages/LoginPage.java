@@ -1,6 +1,6 @@
 package pages;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,7 +18,7 @@ public class LoginPage {
 	public LoginPage(WebDriver driver) {
 		this.driver=driver;
 		PageFactory.initElements(driver, this);	
-		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 	
 	@FindBy(name="username")WebElement username;
