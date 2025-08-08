@@ -75,8 +75,8 @@ public class AdminTest extends TestNgBase{
 		AdminPage admin=new AdminPage(driver);
 		homePage.clickOnTile();
 		admin.reset();
-		String expected = driver.getCurrentUrl();
-		String actual="https://groceryapp.uniqassosiates.com/admin/list-admin";
+		String actual = driver.getCurrentUrl();
+		String expected="https://groceryapp.uniqassosiates.com/admin/list-admin";
 		Assert.assertEquals(actual, expected,Messages.RESET_ERROR);
 			
 	}
