@@ -5,12 +5,13 @@
     <listener class-name="reportGeneration.Listener"/>
   </listeners>
   <test thread-count="5" name="Test(failed)">
-    <parameter name="browser" value="firefox"/>
+    <parameter name="browser" value="chrome"/>
     <classes>
       <class name="testscript.NewsTest">
         <methods>
           <include name="verifySearchNews"/>
           <include name="browserClose"/>
+          <include name="verifyAddNews"/>
           <include name="driverQuit"/>
           <include name="initiaizeBrowser"/>
         </methods>

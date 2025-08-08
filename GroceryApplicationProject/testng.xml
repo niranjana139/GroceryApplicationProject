@@ -10,8 +10,7 @@
   <parameter name="browser" value="chrome"></parameter>
     <classes>
      
-      <class name="testscript.LoginTest">
-     </class>
+      <class name="testscript.LoginTest"/>
       <class name="testscript.HomeTest"/>
       <class name="testscript.AdminTest"/>
      <class name="testscript.NewsTest"/>
